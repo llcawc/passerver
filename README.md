@@ -31,11 +31,9 @@ $ npx passerve [options]
 ### Use in `package.json` scripts:
 
 ```json
-}
   "scripts": {
     "serve": "passerve [options]"
   }
-}
 ```
 
 and start this:
