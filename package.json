@@ -1,0 +1,35 @@
+{
+  "name": "passerve",
+  "version": "1.0.0",
+  "date": "24.01.15",
+  "type": "module",
+  "main": "./index.js",
+  "bin": {
+    "passerve": "./bin/passerve"
+  },
+  "author": "llcawc",
+  "license": "MIT",
+  "homepage": "https://github.com/llcawc/passerve",
+  "description": "Simple static server for local development",
+  "keywords": [
+    "local",
+    "server",
+    "frontend",
+    "express"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/llcawc/passerve.git"
+  },
+  "scripts": {
+    "start": "nodemon"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "commander": "^11.1.0",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
