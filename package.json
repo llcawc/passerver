@@ -1,6 +1,6 @@
 {
   "name": "passerve",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "date": "24.01.15",
   "type": "module",
   "main": "./index.js",
