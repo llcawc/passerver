@@ -1,4 +1,6 @@
-# passerve - simple static server for local development
+# passerve
+
+> simple static server for local development
 
 ## Getting started
 
