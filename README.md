@@ -71,13 +71,30 @@ $ npx passerve --port 8080 --dist './static'
 You can programmatically start the local server if you import the server() function from the passerve package:
 
 ```js
+// gulpfile.js
+
+import gulp from 'gulp'
+const { src, dest, series, parallel, watch } = gulp
 import server from 'passerve'
 
-server({
-  port: 3000, // server port number (default: 3000)
-  dist: './build', // folder for serve files (default: dist)
-  e404: 'error.html', // filename for page "Error 404" (default: 404.html)
-})
+function browse() {
+  server({
+    port: 3000, // server port number (default: 3000)
+    dist: 'dist', // folder for serve files (default: dist)
+    e404: 'error.html', // filename for page "Error 404" (default: 404.html)
+  })
+}
+
+function copy() {
+  return src('src/**/*.*').pipe(dest('dist'))
+}
+
+function watchdev() {
+  watch('src/**/*.*', copy)
+}
+
+export let serve = parallel(watchdev, browse)
+export let dev = series(copy, serve)
 ```
 
 The best way to apply this can be found in the gulp project assignment.
