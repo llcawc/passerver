@@ -1,2 +1,3 @@
 import server from './server.js'
-server({})
+// server({})
+export default server
