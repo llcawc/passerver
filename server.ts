@@ -1,14 +1,14 @@
 import express from 'express'
 import http from 'node:http'
 import path from 'node:path'
+const __dirname = path.resolve()
 import colors from 'colors/safe.js'
 import { Args } from './types.js'
 
-const __dirname = path.resolve()
 const app = express()
 const appServe = http.createServer(app)
 
-export default function server(args: Args = { port: 3000, dist: 'dist', e404: '404.html' }) {
+export default function server(args: Args = { port: 3000, dist: path.resolve(__dirname, 'dist'), e404: '404.html' }) {
   const port = args.port ?? 3000
   const dist = args.dist ?? path.resolve(__dirname, 'dist')
   const e404 = args.e404 ?? '404.html'
