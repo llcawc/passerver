@@ -1,3 +1,2 @@
-import server from './server.js'
-// server({})
-export default server
+import server from './server.js';
+export default server;
