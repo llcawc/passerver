@@ -1,21 +1,12 @@
 #!/usr/bin/env node
 
 import process from 'node:process'
-import path from 'node:path'
-const __dirname = path.resolve()
-import fs from 'node:fs/promises'
 import { Command } from 'commander'
 const program = new Command()
 import colors from 'colors/safe.js'
 import server from '../server.js'
 
-try {
-  let pack = await fs.readFile(path.resolve(__dirname, 'package.json'), 'utf8')
-  let ver = JSON.parse(pack).version
-  program.version(ver, '-v, --version', 'output the current version')
-} catch (err) {
-  console.error(err)
-}
+program.version('1.0.6', '-v, --version', 'output the current version')
 
 program
   .option('-p, --port <n>', 'server port number (default: 3000)')

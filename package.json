@@ -1,7 +1,7 @@
 {
   "name": "passerve",
-  "version": "1.0.5",
-  "date": "24.01.20",
+  "version": "1.0.6",
+  "date": "24.01.24",
   "type": "module",
   "main": "./index.js",
   "bin": {
@@ -20,6 +20,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/llcawc/passerve.git"
+  },
+  "engines": {
+    "node": ">= 16.0.0"
   },
   "scripts": {
     "serve": "npx passerve",

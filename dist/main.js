@@ -94,13 +94,12 @@
       // circular color mode change button and set new color mode
       switch (currentMode) {
         case 'light':
-          showThemeIcon('dark')
           theme = 'dark'
           break
         case 'dark':
-          showThemeIcon('light')
           theme = 'light'
       }
+      showThemeIcon(theme)
       setStoredTheme(theme)
       setTheme(theme)
     })
