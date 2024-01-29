@@ -5,6 +5,7 @@ const __dirname = path.resolve();
 import fs from 'node:fs/promises';
 import { constants } from 'fs';
 import colors from 'colors/safe.js';
+import { content } from './error.js';
 const app = express();
 const appServe = http.createServer(app);
 /**
@@ -18,7 +19,6 @@ export default async function server(args = { port: 3000, dist: path.resolve(__d
     const e404 = args.e404 ?? '404.html';
     let isE404 = false; // file '404.html' is out in dist folder
     let nameErr = path.resolve(__dirname, dist, e404); // true name file Error404
-    let content = 'Error 404!'; // Default content E404
     // Checking for the error's file in the dist folder
     try {
         await fs.access(nameErr, constants.F_OK);
@@ -26,18 +26,7 @@ export default async function server(args = { port: 3000, dist: path.resolve(__d
     }
     catch {
         console.log(colors.yellow(`Warning: File ${nameErr} cannot read`));
-    }
-    // Read default file "error.html" in programm folder
-    if (!isE404) {
-        try {
-            await fs.access('./error.html', constants.F_OK);
-            nameErr = 'the default content is used';
-            content = await fs.readFile('./error.html', 'utf8');
-        }
-        catch {
-            nameErr = 'none';
-            console.log(colors.yellow('Warning: Default content for E404 cannot read'));
-        }
+        nameErr = 'the default page';
     }
     app.use((req, res, next) => {
         res.header('Access-Control-Allow-Origin', '*');
