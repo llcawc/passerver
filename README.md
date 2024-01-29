@@ -66,6 +66,8 @@ or
 $ npx passerve --port 8080 --dist './static'
 ```
 
+If you do not specify the data on the command line, the default settings will be applied. And if the file "404.html " missing, the error page will be displayed as one simple internal page.
+
 ## API / Gulp
 
 You can programmatically start the local server if you import the server() function from the passerve package:
@@ -73,28 +75,28 @@ You can programmatically start the local server if you import the server() funct
 ```js
 // gulpfile.js
 
-import gulp from 'gulp'
-const { src, dest, series, parallel, watch } = gulp
-import server from 'passerve'
+import gulp from "gulp";
+const { src, dest, series, parallel, watch } = gulp;
+import server from "passerve";
 
 function browse() {
   server({
     port: 3000, // server port number (default: 3000)
-    dist: 'dist', // folder for serve files (default: dist)
-    e404: 'error.html', // filename for page "Error 404" (default: 404.html)
-  })
+    dist: "dist", // folder for serve files (default: dist)
+    e404: "404.html", // filename for page "Error 404" (default: 404.html)
+  });
 }
 
 function copy() {
-  return src('src/**/*.*').pipe(dest('dist'))
+  return src("src/**/*.*").pipe(dest("dist"));
 }
 
 function watchdev() {
-  watch('src/**/*.*', copy)
+  watch("src/**/*.*", copy);
 }
 
-export let serve = parallel(watchdev, browse)
-export let dev = series(copy, serve)
+export let serve = parallel(watchdev, browse);
+export let dev = series(copy, serve);
 ```
 
 The best way to apply this can be found in the gulp project assignment.

@@ -6,7 +6,7 @@ const program = new Command()
 import colors from 'colors/safe.js'
 import server from '../server.js'
 
-program.version('1.0.6', '-v, --version', 'output the current version')
+program.version('1.1.0', '-v, --version', 'output the current version')
 
 program
   .option('-p, --port <n>', 'server port number (default: 3000)')
