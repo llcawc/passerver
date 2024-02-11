@@ -1,9 +1,10 @@
 {
   "name": "passerve",
-  "version": "1.1.1",
-  "date": "24.01.29",
+  "version": "1.1.2",
+  "date": "24.02.11",
   "type": "module",
-  "main": "./index.js",
+  "main": "./lib/index.js",
+  "exports": "./lib/index.js",
   "bin": {
     "passerve": "./bin/passerve.js"
   },
@@ -25,10 +26,8 @@
     "node": ">= 16.0.0"
   },
   "scripts": {
-    "dev": "gulp dev",
-    "serve": "gulp serve",
-    "build": "gulp build",
-    "start": "tsc && npx passerve"
+    "test": "npx .",
+    "build": "tsc && node ./lib/getver.js"
   },
   "dependencies": {
     "colors": "^1.4.0",

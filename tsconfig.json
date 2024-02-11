@@ -1,16 +1,16 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
+    "target": "ES6",
     "module": "NodeNext",
-    "rootDir": "./",
+    "rootDir": "./lib",
     "moduleResolution": "NodeNext",
-    "outDir": "./",
+    "outDir": "./lib",
     "declaration": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true
   },
-  "include": ["./**/*"],
+  "include": ["./lib/**/*"],
   "exclude": ["node_modules"]
 }
