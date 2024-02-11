@@ -32,10 +32,7 @@ Example call:`)}` +
   $ npx passerve --port 8080 --dist './static'`)}`
 program.addHelpText('after', `${example}`)
 
-const footer =
-  `${colors.gray('Сopyright ©2024 llcawc, MIT License. Made with')}` +
-  colors.red(' ❤  ') +
-  `${colors.gray('for the best architecture. \nSource: https://github.com/llcawc/passerve')}`
+const footer = `${colors.gray('Сopyright ©2024 llcawc, MIT License. Made with') + colors.red(' ♥ ') + colors.gray('for the best architecture. \nSource: https://github.com/llcawc/passerve')}`
 program.addHelpText('afterAll', `${footer}`)
 
 program.parse(process.argv)
