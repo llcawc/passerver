@@ -14,9 +14,8 @@ program
   .option('-d, --dist [value]', 'folder for serve files (default: dist)')
   .option('-e, --e404 [value]', 'filename for page "Error 404" (default: 404.html)')
 
-const header = `${colors.green(`
-Simple static server for local development by pasmurno from llcawc`)}
-`
+const header = `
+${colors.gray(`• passerve version: ${ver}`) + colors.green('\nSimple static server for local development by pasmurno from llcawc\n')}`
 program.addHelpText('before', header)
 
 const example = `

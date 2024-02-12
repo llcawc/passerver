@@ -1,7 +1,7 @@
 {
   "name": "passerve",
-  "version": "1.1.4",
-  "date": "24.02.11",
+  "version": "1.1.5",
+  "date": "24.02.12",
   "type": "module",
   "main": "./lib/index.js",
   "exports": "./lib/index.js",
@@ -27,7 +27,7 @@
   },
   "scripts": {
     "test": "npx .",
-    "build": "tsc && node ./lib/getver.js"
+    "build": "node ./lib/getver.js && tsc"
   },
   "dependencies": {
     "colors": "^1.4.0",
