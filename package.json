@@ -1,12 +1,12 @@
 {
   "name": "passerve",
-  "version": "1.1.5",
-  "date": "24.02.12",
+  "version": "1.1.6",
+  "date": "25.01.13",
   "type": "module",
   "main": "./lib/index.js",
   "exports": "./lib/index.js",
   "bin": {
-    "passerve": "./bin/passerve.js"
+    "passerve": "bin/passerve.js"
   },
   "author": "llcawc",
   "license": "MIT",
@@ -26,17 +26,26 @@
     "node": ">= 16.0.0"
   },
   "scripts": {
+    "lint": "eslint ./lib",
+    "lint:fix": "eslint ./lib --fix",
     "test": "npx .",
     "build": "node ./lib/getver.js && tsc"
   },
   "dependencies": {
     "colors": "^1.4.0",
-    "commander": "^12.0.0",
-    "express": "^4.18.2"
+    "commander": "^13.0.0",
+    "express": "^4.21.2"
   },
   "devDependencies": {
-    "@types/express": "^4.17.21",
-    "@types/node": "^20.11.17",
-    "typescript": "^5.3.3"
+    "@eslint/js": "^9.18.0",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.5",
+    "eslint": "^9.18.0",
+    "globals": "^15.14.0",
+    "prettier": "^3.4.2",
+    "prettier-plugin-embed": "^0.4.15",
+    "prettier-plugin-organize-imports": "^4.1.0",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.19.1"
   }
 }

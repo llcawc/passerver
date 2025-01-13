@@ -105,4 +105,4 @@ The best way to apply this can be found in the gulp project assignment.
 
 ## License
 
-MIT ©2024 pasmurno by [llcawc](https://github.com/llcawc). Made with <span style="color: rgb(230 15 10);">❤</span> for the best architecture
+MIT ©2024 pasmurno by [llcawc](https://github.com/llcawc). Made with <span style="color: rgb(230 15 10);">❤</span> to beautiful architecture

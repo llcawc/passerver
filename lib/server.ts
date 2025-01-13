@@ -1,13 +1,13 @@
 import express from 'express'
 import http from 'node:http'
-import path from 'node:path'
-const __dirname = path.resolve()
+import { resolve, join } from 'node:path'
 import fs from 'node:fs/promises'
 import { constants } from 'fs'
 import colors from 'colors/safe.js'
 import { Args } from './types.js'
 import { content } from './error.js'
 
+const __dirname = resolve()
 const app = express()
 const appServe = http.createServer(app)
 
@@ -16,13 +16,13 @@ const appServe = http.createServer(app)
  * @param args - Optional parameters: server port, source file folder and file name for error 404
  * @type type Args = { port: number; dist: string; e404: string }
  */
-export default async function server(args: Args = { port: 3000, dist: path.resolve(__dirname, 'dist'), e404: '404.html' }) {
+export default async function server(args: Args = { port: 3000, dist: join(__dirname, 'dist'), e404: '404.html' }) {
   const port = args.port ?? 3000
-  const dist = args.dist ?? path.resolve(__dirname, 'dist')
+  const dist = args.dist ?? join(__dirname, 'dist')
   const e404 = args.e404 ?? '404.html'
 
   let isE404: boolean = false // file '404.html' is out in dist folder
-  let nameErr: string = path.resolve(__dirname, dist, e404) // true name file Error404
+  let nameErr: string = resolve(__dirname, dist, e404) // true name file Error404
 
   // Checking for the error's file in the dist folder
   try {
@@ -46,7 +46,11 @@ export default async function server(args: Args = { port: 3000, dist: path.resol
 
   // All other send page Error 404
   app.use((req, res) => {
-    isE404 ? res.status(404).sendFile(path.resolve(__dirname, dist, e404)) : res.status(404).send(content)
+    if (isE404) {
+      res.status(404).sendFile(resolve(__dirname, dist, e404))
+    } else {
+      res.status(404).send(content)
+    }
   })
 
   appServe.listen(port, () => {

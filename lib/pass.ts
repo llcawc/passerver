@@ -6,7 +6,7 @@ import server from './server.js'
 import { Args } from './types.js'
 
 import version from './version.js'
-let ver: string = version ?? 'latest'
+const ver: string = version ?? 'latest'
 program.version(ver, '-v, --version', 'output the current version')
 
 program
@@ -31,8 +31,8 @@ program.addHelpText('after', example)
 const footer = `
 ${
   colors.gray('Сopyright ©2024 llcawc, MIT License. Made with') +
-  colors.red(' ♥ ') +
-  colors.gray('for the best architecture. \nSource: https://github.com/llcawc/passerve')
+  colors.red(' ❤ ') +
+  colors.gray('to beautiful architecture. \nSource: https://github.com/llcawc/passerve')
 }
 `
 program.addHelpText('afterAll', footer)
